@@ -31,6 +31,20 @@ CREATE TABLE `blog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
+-- Estructura de tabla para la tabla `receta`
+--
+
+CREATE TABLE `receta` (
+  `id` bigint NOT NULL,
+  `nombre` varchar(1024) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `ingredientes` longtext CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `preparacion` longtext CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `fecha_creacion` datetime NOT NULL,
+  `fecha_modificacion` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -38,6 +52,13 @@ CREATE TABLE `blog` (
 -- Indices de la tabla `blog`
 --
 ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
+
+
+--
+-- Indices de la tabla `receta`
+--
+ALTER TABLE `receta`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -48,5 +69,11 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT de la tabla `blog`
 --
 ALTER TABLE `blog`
+  MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `receta`
+--
+ALTER TABLE `receta`
   MODIFY `id` bigint NOT NULL AUTO_INCREMENT;
 COMMIT;
